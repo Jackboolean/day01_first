@@ -1,6 +1,25 @@
 $(function(){
     getUserInfo()
+    //点击退出退出主页面
+    var layer=layui.layer//倒不倒无所谓，本来就有
+    $('#btnLogout').on('click',function(){
+        layer.confirm('是否退出?', {icon: 3, title:'提示'}, function(index){
+           //清空本地的token
+           localStorage.removeItem('token')
+            //页面跳转到登录页面
+            location.href="/login.html"
+            //关闭询问框
+            layer.close(index);
+          });
+    })
 })
+
+
+
+
+
+
+
 //获取用户信息必须封装成全局函数，写在入口函数之外
 //后需要用这个函数，所以是全局
 function getUserInfo(){
