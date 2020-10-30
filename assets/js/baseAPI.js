@@ -12,7 +12,7 @@ $.ajaxPrefilter(function(options){
 //必须以my开头才行
     if(options.url.indexOf('/my/')!==-1){
         options.headers={
-            Authorization:localStorage.getItem('token')||""//''是啥意思？
+            Authorization:localStorage.getItem('token')||""
            }
     }
    //拦截所有响应，判断身份认证信息
