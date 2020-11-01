@@ -22,7 +22,8 @@ $(function(){
     $('#file').on('change',function(e){
       //console.log(e);
       var file=e.target.files[0]
-      if(file===undefined){
+     // console.log(file);
+      if(file===undefined){//如果不上传头像的话，浏览器给的是undefined
         return layer.msg('请选择图片')
       }
 
@@ -42,8 +43,8 @@ $(function(){
         height: 100
       })
       .toDataURL('image/png')       // 将 Canvas 画布上的内容，转化为 base64 格式的字符串
-      console.log(dataURL);
-      console.log(typeof dataURL);
+     // console.log(dataURL);
+     // console.log(typeof dataURL);
       $.ajax({
         type:'POST',
         url:'/my/update/avatar',
